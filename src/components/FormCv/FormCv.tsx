@@ -41,7 +41,7 @@ const FormSectionTabs = [
 ];
 
 export default function FormCv({ onPrint, register, control }: Props) {
-    const { toggleColor } = useTheme();
+    const { currentColor, toggleColor } = useTheme();
     const [activeTab, setActiveTab] = useState(FormSectionTabs[0].name);
 
     const {
@@ -93,7 +93,8 @@ export default function FormCv({ onPrint, register, control }: Props) {
                             key={key}
                             type='button'
                             onClick={() => toggleColor(key as ColorName)}
-                            className={`size-5 rounded-md ${value.primary} `}
+                            title={value.name}
+                            className={`size-5 cursor-pointer rounded-md transition-all duration-150 ${value.primary} ${currentColor.name === value.name ? 'ring-1 ring-offset-1' : 'border-gray-300'} `}
                         />
                     ))}
                 </div>
@@ -102,7 +103,7 @@ export default function FormCv({ onPrint, register, control }: Props) {
             <FormTabs tabs={FormSectionTabs} activeTab={activeTab} setActiveTab={setActiveTab} />
 
             {/* Sections */}
-            {activeTab === 'perfil' && <FormPerfilSection register={register} control={control}/>}
+            {activeTab === 'perfil' && <FormPerfilSection register={register} control={control} />}
             {activeTab === 'experiences' && (
                 <FormExperienceSection
                     fields={experienceFields}
@@ -126,11 +127,8 @@ export default function FormCv({ onPrint, register, control }: Props) {
 
             {/* Botones de acción */}
             <div className='flex gap-3'>
-                <Button type='button' variant='success' className='flex-1'>
+                <Button type='button' onClick={onPrint} variant='success' className='flex-1'>
                     Descargar PDF
-                </Button>
-                <Button type='button' onClick={onPrint} className='flex-1'>
-                    Imprimir CV
                 </Button>
             </div>
         </form>
