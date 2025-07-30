@@ -27,6 +27,7 @@ function App() {
             <title>Generador de CV Gratis - Crea tu Currículum Online</title>
             <meta name='description' content='Crea tu CV en minutos. Generador simple, Solo lo esencial. Descarga en PDF al instante.' />
             <meta name='keywords' content='generador cv simple, cv rapido, cv minimalista, crear cv sin complicaciones' />
+            <meta name='google-site-verification' content='AoB-62p62O3OlUdxtTdVsakmA3y81ciRZm0YNDoTep4' />
             <header className='sr-only'>
                 <h1>Generador de CV Simple y Rápido</h1>
                 <p>Crea tu currículum profesional en minutos, sin funciones innecesarias</p>
