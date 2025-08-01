@@ -10,7 +10,6 @@ import type { CvData } from './types/CvDataTypes';
 import { cvDefaultValues } from './types/cvDefaultValues';
 
 function App() {
-    console.log('render app');
     const { control, register } = useForm<CvData>({
         defaultValues: cvDefaultValues,
     });
